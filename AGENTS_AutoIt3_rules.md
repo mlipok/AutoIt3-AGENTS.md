@@ -1,5 +1,7 @@
 # AutoIt3 rules
 
+Executable locations are defined in `AGENTS_AutoIt3_local_Instalation.md`. Use the listed portable installation.
+
 ## Exclusions from inspection
 
 Apply the following exclusions within the directory containing this `AGENTS_AutoIt3_rules.md` file and all its subdirectories:
@@ -16,22 +18,18 @@ Match these patterns without regard to letter case. Apply the exclusions when se
 
 Keep all `*.au3` source files in the repository in **UTF-8 without BOM** (the file must not start with `EF BB BF`) and use CRLF line endings. For every change, check the encoding before saving, after saving, and after running formatting tools; if an edited file has a BOM, remove it when saving. Do not replace UTF-8 with UTF-16. The `$FO_UTF8_NOBOM` constant controls how `FileOpen()` reads or writes data files; it does not replace checking the encoding of the `*.au3` source file itself. This rule does not expand the scope of files permitted for a given task.
 
-Use the portable AutoIt installation at `Z:\AutoItPortable\`:
-
-- AutoIt 3.3.18.0: `Z:\AutoItPortable\App\AutoIt3.exe`.
-- Au3Check 3.3.18.0: `Z:\AutoItPortable\App\Au3Check.exe`.
-- Tidy 25.205.1420.7: `Z:\AutoItPortable\App\SciTE\Tidy\Tidy.exe`.
+Use the portable AutoIt executables specified above.
 
 After preparing or modifying any `*.au3` code, run these tools in order:
 
-1. Tidy — format the code.
-2. Au3Check — check syntax and errors with:
+1. `Tidy.exe` — format the code.
+2. `Au3Check.exe` — check syntax and errors with:
    `-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6 -w 7`.
 
-Run Tidy only with an explicit path to an existing, specific `.au3` file, passed as its sole argument as documented by this installation's SciTE `au3.properties`. Do not add `/q`. Never run Tidy without a file path or with `/?`, even to test the program, check its invocation syntax, display help, or diagnose a problem. These invocations can open an interactive file-selection window and leave a `Tidy.exe` process running. Determine how to invoke it from documentation or existing valid invocations, without launching Tidy in this way.
-After running Tidy, check that its process has exited. If a file-selection window appears, close it and ensure that no orphaned `Tidy.exe` process remains.
+Run `Tidy.exe` only with an explicit path to an existing, specific `.au3` file, passed as its sole argument as documented by this installation's SciTE `au3.properties`. Do not add `/q`. Never run `Tidy.exe` without a file path or with `/?`, even to test the program, check its invocation syntax, display help, or diagnose a problem. These invocations can open an interactive file-selection window and leave a `Tidy.exe` process running. Determine how to invoke it from documentation or existing valid invocations, without launching `Tidy.exe` in this way.
+After running `Tidy.exe`, check that its process has exited. If a file-selection window appears, close it and ensure that no orphaned `Tidy.exe` process remains.
 
-If Au3Check fails to start with a DLL relocation or process-launch error in the restricted Codex environment, retry the same command outside that environment using `Z:\AutoItPortable\App\Au3Check.exe`. Record the tool path, version, execution context, and actual error and warning counts. Never report a launch failure as a syntax-check result. Check dependent modules through their public include entry point when a standalone check lacks required declarations.
+If `Au3Check.exe` fails to start with a DLL relocation or process-launch error in the restricted Codex environment, retry the same command outside that environment using `Au3Check.exe`. Record the tool path, version, execution context, and actual error and warning counts. Never report a launch failure as a syntax-check result. Check dependent modules through their public include entry point when a standalone check lacks required declarations.
 
 If the file uses an AutoIt3Wrapper directive, use exactly:
 
@@ -41,7 +39,7 @@ If the file uses an AutoIt3Wrapper directive, use exactly:
 
 In the change report, state the results of both checks, including all errors and warnings. If either tool could not be run, say so explicitly in the report.
 
-Changes limited solely to the color, size, or position of interface elements do not require GUI tests. Do not run a GUI test only to confirm such changes. Still run Tidy and Au3Check for modified `*.au3` files. If program behavior also changes, verify that behavior to the extent needed.
+Changes limited solely to the color, size, or position of interface elements do not require GUI tests. Do not run a GUI test only to confirm such changes. Still run `Tidy.exe` and `Au3Check.exe` for modified `*.au3` files. If program behavior also changes, verify that behavior to the extent needed.
 
 ## AutoIt function headers, UDF development, and best coding practices
 
