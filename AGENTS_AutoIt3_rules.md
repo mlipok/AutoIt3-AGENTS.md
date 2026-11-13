@@ -1,6 +1,6 @@
 # AutoIt3 rules
 
-Executable locations are defined in `AGENTS_AutoIt3_local_Instalation.md`. Use the listed portable installation.
+Use the AutoIt executables listed in `AGENTS_AutoIt3_local_Installation.md`.
 
 ## Exclusions from inspection
 
@@ -17,8 +17,6 @@ Match these patterns without regard to letter case. Apply the exclusions when se
 ## AutoIt code validation
 
 Keep all `*.au3` source files in the repository in **UTF-8 without BOM** (the file must not start with `EF BB BF`) and use CRLF line endings. For every change, check the encoding before saving, after saving, and after running formatting tools; if an edited file has a BOM, remove it when saving. Do not replace UTF-8 with UTF-16. The `$FO_UTF8_NOBOM` constant controls how `FileOpen()` reads or writes data files; it does not replace checking the encoding of the `*.au3` source file itself. This rule does not expand the scope of files permitted for a given task.
-
-Use the portable AutoIt executables specified above.
 
 After preparing or modifying any `*.au3` code, run these tools in order:
 

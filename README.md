@@ -10,7 +10,7 @@ These Markdown files guide an assistant's work. They do not install AutoIt, conf
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Entry point that instructs the assistant to read the shared AutoIt rules and defines how project-specific requirements are added. |
 | [AGENTS\_AutoIt3\_rules.md](AGENTS_AutoIt3_rules.md) | Shared rules for inspection exclusions, source encoding, Tidy and Au3Check validation, and function headers. |
-| [AGENTS\_AutoIt3\_local\_Instalation.md](AGENTS_AutoIt3_local_Instalation.md) | Paths to the AutoIt executables used by the shared validation rules. |
+| [AGENTS\_AutoIt3\_local\_Installation.md](AGENTS_AutoIt3_local_Installation.md) | Paths to the AutoIt executables used by the shared validation rules. |
 | [AGENTS\_AutoIt3\_Best\_coding\_practices.md](AGENTS_AutoIt3_Best_coding_practices.md) | Reference guidance on functions, variable names and scope, initialization, constants, and code organization. |
 | [AGENTS\_AutoIt3\_Function\_notes.md](AGENTS_AutoIt3_Function_notes.md) | Reference for function parameters, return values, optional arguments, `@error`, and `@extended`. |
 | [AGENTS\_AutoIt3\_UDF-spec.md](AGENTS_AutoIt3_UDF-spec.md) | Reference for UDF structure, naming, documentation headers, and examples. |
@@ -29,13 +29,13 @@ The reference documents retain their source links and retrieval dates. They are 
 
    ```text
    AGENTS_AutoIt3_rules.md
-   AGENTS_AutoIt3_local_Instalation.md
+   AGENTS_AutoIt3_local_Installation.md
    AGENTS_AutoIt3_Best_coding_practices.md
    AGENTS_AutoIt3_Function_notes.md
    AGENTS_AutoIt3_UDF-spec.md
    ```
 
-   **Before using the rules, update the executable paths in `AGENTS_AutoIt3_local_Instalation.md` for the target development environment.** The paths supplied with this repository describe its original environment and may not exist on another computer.
+   **Before using the rules, update the executable paths in `AGENTS_AutoIt3_local_Installation.md` for the target development environment.** The paths supplied with this repository describe its original environment and may not exist on another computer.
 
 3. If your project has no `AGENTS.md`, copy the supplied one into the same directory. If it already has one, merge the complete `## AutoIt3 global rules` section from this repository's `AGENTS.md` into it, preserving the project's existing instructions.
 
@@ -49,7 +49,7 @@ Example layout:
 MyAutoItProject/
     AGENTS.md
     AGENTS_AutoIt3_rules.md
-    AGENTS_AutoIt3_local_Instalation.md
+    AGENTS_AutoIt3_local_Installation.md
     AGENTS_AutoIt3_Best_coding_practices.md
     AGENTS_AutoIt3_Function_notes.md
     AGENTS_AutoIt3_UDF-spec.md
@@ -62,11 +62,11 @@ Example project-specific instructions to append to `AGENTS.md`:
 ## AutoIt3 specific rules
 
 - Work only on Main.au3 and the UDF files explicitly named in the task.
-- Use the executable paths configured in `AGENTS_AutoIt3_local_Instalation.md`.
+- Use the executable paths configured in `AGENTS_AutoIt3_local_Installation.md`.
 - Follow the shared validation order and report the actual results.
 ```
 
-The executable paths in `AGENTS_AutoIt3_local_Instalation.md` must match the target development environment. The main `AGENTS.md` takes precedence in a conflict, as stated in the shared entry point.
+The executable paths in `AGENTS_AutoIt3_local_Installation.md` must match the target development environment. The main `AGENTS.md` takes precedence in a conflict, as stated in the shared entry point.
 
 Place the shared files in the directory whose source tree should be covered by their inspection exclusions. Keep any additional instructions required for individual subdirectories in their applicable `AGENTS.md` files.
 

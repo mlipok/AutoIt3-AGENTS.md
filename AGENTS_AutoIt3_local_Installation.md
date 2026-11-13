@@ -10,6 +10,5 @@ Use the local AutoIt installation at `Z:\AutoItPortable\`:
 - Tidy: `Z:\AutoItPortable\App\SciTE\Tidy\Tidy.exe`.
 - AU3Stripper: `Z:\AutoItPortable\App\SciTE\au3Stripper\AU3Stripper.exe`.
 - AutoIt3Wrapper: `Z:\AutoItPortable\App\SciTE\AutoIt3Wrapper\AutoIt3Wrapper.exe`.
-- AutoIt include directory: `Z:\AutoItPortable\App\Include\`.
 
 Follow `AGENTS_AutoIt3_rules.md` for validation and safe invocation.
