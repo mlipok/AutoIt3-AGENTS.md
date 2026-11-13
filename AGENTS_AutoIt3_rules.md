@@ -39,6 +39,34 @@ In the change report, state the results of both checks, including all errors and
 
 Changes limited solely to the color, size, or position of interface elements do not require GUI tests. Do not run a GUI test only to confirm such changes. Still run `Tidy.exe` and `Au3Check.exe` for modified `*.au3` files. If program behavior also changes, verify that behavior to the extent needed.
 
+## Running and compiling AutoIt scripts
+
+`Tidy.exe` and `Au3Check.exe` do not execute the script. Run or compile a script only when the task requires its behavior or build to be verified, and only after both checks have been run.
+
+Run a script with `AutoIt3.exe` or `AutoIt3_x64.exe` using `/ErrorStdOut` as the first argument, followed by an explicit path to an existing `.au3` file. Without `/ErrorStdOut`, a fatal error opens a modal message box and the process does not exit until that box is closed. Never run the interpreter without a script path; this opens a `Run Script:` file-selection window.
+
+The AutoIt executables are Windows GUI programs. A shell that starts one directly can return immediately, before the script has finished, with no output and no exit code. Start the process in a way that waits for it and captures its output, for example by piping the output in PowerShell or by using `Start-Process -Wait -PassThru`. `ConsoleWrite()` writes to stdout and `ConsoleWriteError()` writes to stderr. The exit code is the value passed to `Exit`. A fatal error writes the file, line, and message to stdout and ends with exit code 1; because a script can also end with `Exit 1`, read the output before reporting the cause.
+
+Before running a script, check it and its includes for anything that waits for a user: `MsgBox()` without a timeout, `InputBox()`, file and folder selection dialogs, a GUI message loop, `#RequireAdmin`, or a loop with no exit condition. Do not start such a script unattended. Set a time limit for every run. If the limit is exceeded, terminate only the process you started, identified by its process ID, and report the run as timed out, not as a result. Do not terminate other `AutoIt3.exe` processes; they may belong to the user. After each run, check that the process you started has exited.
+
+Run `Aut2exe.exe` or `Aut2exe_x64.exe` only with `/in` pointing to an existing `.au3` file and with an explicit `/out` path. Without arguments it opens its interactive window, and a missing input file opens a modal `Aut2Exe Error` window. Exit code 0 from Aut2Exe confirms only that an output file was written; it also compiles a script that calls an undefined function. Never report a successful compilation as a syntax check.
+
+In the change report, state the exact command, the exit code, and the relevant output of each run. If a script was not run, say so and give the reason.
+
+## Scripts that act on the desktop or the system
+
+A script started by the interpreter runs in the user's desktop session with the user's rights. It is not isolated from open windows, the keyboard and mouse, the file system, or the registry. Before running any script, inspect it and the includes it uses for calls of the following kinds:
+
+- Simulated or blocked input: `Send()`, `ControlSend()`, `MouseClick()`, `MouseClickDrag()`, `MouseMove()`, `MouseWheel()`, `BlockInput()`, `HotKeySet()`.
+- Windows and processes the script did not create: `WinClose()`, `WinKill()`, `WinSetState()`, `WinActivate()`, `ProcessClose()`.
+- System state: `Shutdown()`, `RegWrite()`, `RegDelete()`, `EnvUpdate()`.
+- Files and directories outside the working directory of the task: `FileDelete()`, `FileMove()`, `FileRecycle()`, `FileRecycleEmpty()`, `DirRemove()`, `DirMove()`.
+- Other programs: `Run()`, `RunWait()`, `RunAs()`, `ShellExecute()`.
+
+This list is not exhaustive; `DllCall()` and COM objects can have the same effects.
+
+Do not run a script that can reach such a call unless the user has explicitly approved that run. When asking, name the calls and what they act on. Approval covers the script as it was inspected; ask again if those calls or their targets change. If approval is not given, limit verification to `Tidy.exe` and `Au3Check.exe` and state in the change report that the behavior was not run.
+
 ## AutoIt function headers, UDF development, and best coding practices
 
 - Before creating or reviewing a UDF, also check `AGENTS_AutoIt3_Best_coding_practices.md` for guidance on function use, variable names and scope, initialization, constants, Au3Check directives, magic numbers, and `#include-once`. Treat its guidance as recommendations; follow the specific repository rules in this file where they differ.

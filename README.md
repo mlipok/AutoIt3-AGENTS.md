@@ -9,7 +9,7 @@ These Markdown files guide an assistant's work. They do not install AutoIt, conf
 | File | Purpose |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Entry point that instructs the assistant to read the shared AutoIt rules and defines how project-specific requirements are added. |
-| [AGENTS\_AutoIt3\_rules.md](AGENTS_AutoIt3_rules.md) | Shared rules for inspection exclusions, source encoding, Tidy and Au3Check validation, and function headers. |
+| [AGENTS\_AutoIt3\_rules.md](AGENTS_AutoIt3_rules.md) | Shared rules for inspection exclusions, source encoding, Tidy and Au3Check validation, running and compiling scripts, and function headers. |
 | [AGENTS\_AutoIt3\_local\_Installation.md](AGENTS_AutoIt3_local_Installation.md) | Paths to the AutoIt executables used by the shared validation rules. |
 | [AGENTS\_AutoIt3\_Best\_coding\_practices.md](AGENTS_AutoIt3_Best_coding_practices.md) | Reference guidance on functions, variable names and scope, initialization, constants, and code organization. |
 | [AGENTS\_AutoIt3\_Function\_notes.md](AGENTS_AutoIt3_Function_notes.md) | Reference for function parameters, return values, optional arguments, `@error`, and `@extended`. |
