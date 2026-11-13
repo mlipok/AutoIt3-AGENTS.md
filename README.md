@@ -84,3 +84,18 @@ Update project-specific references to those files and remove obsolete copies aft
 ## Contributing
 
 Propose changes to shared rules in this repository. Keep filenames and references consistent and update this README when the adoption instructions change.
+
+## License and attribution
+
+Original project instructions and documentation by Michał Lipok (mLipok) are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Retain attribution and license information, and indicate changes when adapting them. This does not by itself license the source code of projects that use these instructions.
+
+The following third-party documents are excluded from this license and retain their original terms and source attributions:
+
+- `AGENTS_AutoIt3_Best_coding_practices.md` — [AutoIt Wiki: Best coding practices](https://www.autoitscript.com/wiki/Best_coding_practices).
+- `AGENTS_AutoIt3_Function_notes.md` — [AutoIt documentation: Function Notes](https://www.autoitscript.com/autoit3/docs/function_notes.htm), subject to the AutoIt EULA.
+- `AGENTS_AutoIt3_UDF-spec.md` — [AutoIt Wiki: UDF-spec](https://www.autoitscript.com/wiki/UDF-spec).
+
+When adopting the shared files, also retain [LICENSE.md](LICENSE.md), the source and authorship notices in the copied files, and [AutoIt-EULA.md](AutoIt-EULA.md) when copying the covered AutoIt documentation. The two Wiki-derived files currently do not identify a specific license grant; their inclusion here does not supply one. Check the original terms or obtain permission as needed.
+
+See [LICENSE.md](LICENSE.md) for the exact scope and exclusions, and [AutoIt-EULA.md](AutoIt-EULA.md) for the accompanying third-party license.
+
