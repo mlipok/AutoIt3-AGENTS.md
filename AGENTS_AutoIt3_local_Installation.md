@@ -1,6 +1,8 @@
 # AutoIt 3 local installation
 
-Use the local AutoIt installation at `Z:\AutoItPortable\`:
+**Local configuration required:** The paths below are examples from the original development environment. Before using these instructions, you must locate the corresponding AutoIt tools on your computer and update each path to match its actual location. Do not assume that the supplied paths exist on your system.
+
+Example paths for the original AutoIt installation at `Z:\AutoItPortable\`:
 
 - AutoIt (32-bit): `Z:\AutoItPortable\App\AutoIt3.exe`.
 - AutoIt (64-bit): `Z:\AutoItPortable\App\AutoIt3_x64.exe`.

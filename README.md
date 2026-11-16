@@ -35,7 +35,7 @@ The reference documents retain their source links and retrieval dates. They are 
    AGENTS_AutoIt3_UDF-spec.md
    ```
 
-   **Before using the rules, update the executable paths in `AGENTS_AutoIt3_local_Installation.md` for the target development environment.** The paths supplied with this repository describe its original environment and may not exist on another computer.
+   **Local configuration required:** You must locate the corresponding AutoIt tools on your computer and update each executable path in `AGENTS_AutoIt3_local_Installation.md` to match its actual location before using these instructions. The supplied paths are examples from the original development environment; do not assume that they exist on your system.
 
 3. If your project has no `AGENTS.md`, copy the supplied one into the same directory. If it already has one, merge the complete `## AutoIt3 global rules` section from this repository's `AGENTS.md` into it, preserving the project's existing instructions.
 
@@ -62,7 +62,7 @@ Example project-specific instructions to append to `AGENTS.md`:
 ## AutoIt3 specific rules
 
 - Work only on Main.au3 and the UDF files explicitly named in the task.
-- Use the executable paths configured in `AGENTS_AutoIt3_local_Installation.md`.
+- Before running any tool, verify the executable paths configured in `AGENTS_AutoIt3_local_Installation.md` against the actual local installation.
 - Follow the shared validation order and report the actual results.
 ```
 
@@ -73,6 +73,8 @@ Place the shared files in the directory whose source tree should be covered by t
 ## Updating existing copies
 
 Copy the five shared rule, executable-location, and reference files together from the same repository revision. Synchronize the complete `## AutoIt3 global rules` section in the receiving project's `AGENTS.md`, preserving its other sections. Review changes before starting further work; copied files do not update automatically.
+
+When updating `AGENTS_AutoIt3_local_Installation.md`, preserve your locally configured paths while incorporating changes to the tool list and instructions. Recheck each path against the actual installation before running tools.
 
 When upgrading from the original filenames, replace them with:
 

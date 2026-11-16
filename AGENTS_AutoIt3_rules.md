@@ -2,6 +2,8 @@
 
 Use the AutoIt executables listed in `AGENTS_AutoIt3_local_Installation.md`.
 
+Before running any tool, read `AGENTS_AutoIt3_local_Installation.md` and verify that its configured executable paths match the actual local installation.
+
 ## Exclusions from inspection
 
 Apply the following exclusions within the directory containing this `AGENTS_AutoIt3_rules.md` file and all its subdirectories:
