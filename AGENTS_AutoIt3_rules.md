@@ -56,6 +56,18 @@ Changes limited solely to the color, size, or position of interface elements do 
 - When writing, reviewing, or calling AutoIt functions, check `AGENTS_AutoIt3_Function_notes.md` for function values, optional parameters, return values, `@error`, and `@extended`. If a called function reports failure through `@error`, check that flag immediately before relying on its return value.
 - Before writing or reviewing an AutoIt function header, check `AGENTS_AutoIt3_UDF-spec.md`, especially **Functions → Headers** and **Internal use only**. The source page is marked as a work in progress; where it differs from the repository-specific rules below, follow these rules.
 - Use a `; #FUNCTION#` block for public functions and a `; #INTERNAL_USE_ONLY#` block for helper functions. Keep the standard field layout used in this repository: `Name`, `Description`, `Syntax`, `Parameters`, `Return values`, `Author`, `Modified`, `Remarks`, `Related`, `Link`, `Example`.
+- Keep complete sentences on a single source line in all function header fields. When splitting prose across lines, break between complete sentences. Keep distinct parameters, return cases, and error-code entries on separate lines. Let the editor handle visual wrapping for narrower windows.
+- Use exactly one `Example` field per function header. Choose one of these forms:
+  - **Inline code.** Put the first line of a practical AutoIt example directly after `Example .......:`. Show how to use the function with meaningful arguments, use its return value, or handle an error. A bare function call that only repeats `Syntax` is insufficient. List references to related functions in `Related`. Align any continuation lines with the first line of code.
+  - **Example file.** For a UDF, use a relative path to an existing `.au3` file that demonstrates the function. The file must be in the same directory as the UDF or in one of its subdirectories. Resolve the path from the UDF directory. Absolute paths and `..` segments are prohibited.
+  - **No example.** Write `No` if no example is available. Never use `Yes` as a placeholder.
+
+  ```autoit
+  ; Example .......: If Not _FileManifest_Init("1.5") Then Exit @error
+  ; Example .......: .\FileManifest_Example.au3
+  ; Example .......: .\Examples\FileManifest_Example.au3
+  ; Example .......: No
+  ```
 - Keep `Description` concise. In `Parameters`, explain the meaning of arguments, default values, and `ByRef` where these affect use of the function. The header must match the actual signature and execution paths.
 - Use `Modified` to name people who helped modify the function. Do not put dates, change descriptions, or version history there.
 - In `Return values`, describe the actual values returned on success and failure. Where the function makes this distinction, use `On Success - ...` and `On Failure - ... and sets @error ...`. Do not force this split on functions that merely preserve a received `@error` or return a Boolean without setting their own error state.
